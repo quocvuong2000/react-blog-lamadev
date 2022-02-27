@@ -1,5 +1,5 @@
 .header {
-    margin-top: 60px;
+    margin-top: 50px;
   }
   
   .headerTitles {
@@ -8,18 +8,35 @@
     align-items: center;
     font-family: "Lora", serif;
     color: #444;
+    font-weight: 600;
   }
-  
+  .headerDragon {
+    position: absolute;
+    top: 8%;
+    z-index: 200;
+    width: 130px;
+    height: 80px;
+    transform: rotate(5deg);
+  }
   .headerTitleSm {
     position: absolute;
-    top: 18%;
+    top: 16%;
     font-size: 20px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    z-index: 100;
+    background-color: #eee;
+
   }
   
   .headerTitleLg {
     position: absolute;
-    top: 20%;
+    top: 22%;
     font-size: 100px;
+    z-index: 99;
+    color: rgb(124, 124, 124);
+
   }
   
   .headerImg{
@@ -27,4 +44,10 @@
       height: 450px;
       margin-top: 80px;
       object-fit: cover;
+      opacity: 0.9;
+  }
+  .headerImg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }

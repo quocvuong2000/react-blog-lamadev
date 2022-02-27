@@ -51,6 +51,9 @@
     font-weight: 300;
     cursor: pointer;
   }
+  .topListItem:hover {
+    color: #6a5af9;
+  }
   
   .topSearchIcon {
     font-size: 18px;

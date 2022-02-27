@@ -5,7 +5,7 @@ import "./topBar.css";
 
 const navItem = [
   {
-    display: "HOME",
+    display: "TRANG CHỦ",
     link: "/",
   },
   {
@@ -13,16 +13,18 @@ const navItem = [
     link: "/",
   },
   {
-    display: "CONTACT",
+    display: "LIÊN HỆ",
     link: "/",
   },
   {
-    display: "WRITE",
+    display: "VIẾT BLOG",
     link: "/write",
   },
 ];
 
 const TopBar = () => {
+  const user = false;
+
   return (
     <div className="top">
       <div className="topLeft">
@@ -45,18 +47,28 @@ const TopBar = () => {
         </ul>
       </div>
       <div className="topRight">
-        <ul className="topList">
-          <li className="topListItem">
-            <Link className="link" to="/login">
-              LOGIN
-            </Link>
-          </li>
-          <li className="topListItem">
-            <Link className="link" to="/register">
-              REGISTER
-            </Link>
-          </li>
-        </ul>
+      {user ? (
+          <Link className="link" to="/settings">
+            <img
+              className="topImg"
+              src="https://images.pexels.com/photos/1858175/pexels-photo-1858175.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+              alt=""
+            />
+          </Link>
+        ) : (
+          <ul className="topList">
+            <li className="topListItem">
+              <Link className="link" to="/login">
+                ĐĂNG NHẬP
+              </Link>
+            </li>
+            <li className="topListItem">
+              <Link className="link" to="/register">
+                ĐĂNG KÍ
+              </Link>
+            </li>
+          </ul>
+        )}
         <i className="topSearchIcon fas fa-search"></i>
       </div>
     </div>
