@@ -1,39 +1,40 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./post.css";
-const Post = ({ img }) => {
+import PropTypes from "prop-types"; // ES6
+
+const Post = (props) => {
+  const item = props.item;
   return (
     <div className="post">
-      <img className="postImg" src={img} alt="" />
+      <img className="postImg" src={item.photo} alt="" />
       <div className="postInfo">
         <div className="postCats">
-          <span className="postCat">
-            <Link className="link" to="/posts?cat=Music">
-              Music
-            </Link>
-          </span>
-          <span className="postCat">
-            <Link className="link" to="/posts?cat=Music">
-              Life
-            </Link>
-          </span>
+          {item.categories.map((item, index) => {
+            return (
+              <span className="postCat" key={index}>
+                <Link className="link" to="">
+                  {item}
+                </Link>
+              </span>
+            );
+          })}
         </div>
         <span className="postTitle">
-          <Link to="/post/abc" className="link">
-            Lorem ipsum dolor sit amet
+          <Link to={`/post/${item._id}`} className="link">
+            {item.title}
           </Link>
         </span>
         <hr />
-        <span className="postDate">1 hour ago</span>
+        <span className="postDate">{new Date(item.createdAt).toDateString()}</span>
       </div>
-      <p className="postDesc">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
-        officia architecto deserunt deleniti? Labore ipsum aspernatur magnam
-        fugiat, reprehenderit praesentium blanditiis quos cupiditate ratione
-        atque, exercitationem quibusdam, reiciendis odio laboriosam?
-      </p>
+      <p className="postDesc">{item.desc}</p>
     </div>
   );
+};
+
+Post.propTypes = {
+  item: PropTypes.object,
 };
 
 export default Post;

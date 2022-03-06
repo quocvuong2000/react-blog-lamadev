@@ -1,9 +1,15 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import './login.css';
 import {useNavigate} from 'react-router-dom';
 
+import axios from 'axios';
+
 const Login = () => {
   const navigate = useNavigate();
+  const [user,setUser] = useState();
+  const [username, setUsername] = useState();
+  const [password, setPassword] = useState();
+
 
 const navigateHandler = ()=> {
   navigate('/register');
