@@ -14,7 +14,7 @@ const Home = () => {
   const {search} = useLocation();
   useEffect(()=> {
     try {
-      axios.get(`http://localhost:5000/api/posts${search}`).then(res => {
+      axios.get(`posts${search}`).then(res => {
         setPosts(res.data);
       }).catch(error => {
         console.log(error)

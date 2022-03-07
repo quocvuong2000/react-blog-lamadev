@@ -59,6 +59,18 @@
     font-size: 18px;
     color: #666;
     cursor: pointer;
-    margin-left: 15px;
   }
   
+  .logout {
+    padding: 10px 15px;
+    font-size: 1rem;
+    background-color: teal;
+    outline: none;
+    border: none;
+    margin:0 20px;
+    border-radius: 30px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }

@@ -59,12 +59,12 @@ router.get("/:id",async (req,res)=> {
 
 //GET ALL
 router.get("/", async (req,res)=> {
-    const user = req.query.user;
+    const username = req.query.user;
     const catName = req.query.cat
     try {
         let posts;
-        if(user) {
-            posts = await Post.find({user});
+        if(username) {
+            posts = await Post.find({username});
         }else if(catName) {
             posts = await Post.find({
                 categories : {

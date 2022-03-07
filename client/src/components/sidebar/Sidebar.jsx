@@ -9,7 +9,7 @@ const Sidebar = () => {
   useEffect(()=> {
     try {
       const fetchDate = async () => {
-        const res = await axios.get("http://localhost:5000/api/cats/");
+        const res = await axios.get("/cats/");
         setCats(res.data);
       }
       fetchDate();
@@ -26,7 +26,7 @@ const Sidebar = () => {
           alt=""
         />
         <p>
-          Nhóm mình là nhóm Quỷ Đá chuyên hút cần và chơi đá, nhằm phục phụ
+          Nhóm mình là nhóm Quỷ Đá chuyên chơi đá "QUÝ", nhằm phục phụ
           những bạn có những blog hay, những bài viết chia sẻ về cuộc sống hay
           những mẹo vặt trong sinh hoạt hằng ngày thì đây là nơi cho bạn chia sẻ
           những việc ấy. Chào mừng bạn đến với BLOG QUỶ ĐÁ

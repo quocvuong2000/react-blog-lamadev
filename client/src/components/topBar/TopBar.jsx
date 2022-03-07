@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../../context/Context";
 
 import "./topBar.css";
+import { logout } from "../../context/Action";
 
 const navItem = [
   {
@@ -23,7 +25,11 @@ const navItem = [
 ];
 
 const TopBar = () => {
-  const user = false;
+  const { dispatch, user } = useContext(Context);
+  const PF = "http://localhost:5000/images/";
+  const handleLogout = () => {
+    dispatch(logout());
+  };
 
   return (
     <div className="top">
@@ -44,14 +50,15 @@ const TopBar = () => {
               </li>
             );
           })}
+         
         </ul>
       </div>
       <div className="topRight">
-      {user ? (
+        {user ? (
           <Link className="link" to="/settings">
             <img
               className="topImg"
-              src="https://images.pexels.com/photos/1858175/pexels-photo-1858175.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+              src={user.profilePic ? PF + user.profilePic : null}
               alt=""
             />
           </Link>
@@ -69,6 +76,10 @@ const TopBar = () => {
             </li>
           </ul>
         )}
+           {user && <div className="logout" onClick={handleLogout}>
+           LOGOUT
+          </div>
+          }
         <i className="topSearchIcon fas fa-search"></i>
       </div>
     </div>

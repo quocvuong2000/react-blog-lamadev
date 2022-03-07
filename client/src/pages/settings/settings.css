@@ -5,6 +5,9 @@
   .settingsWrapper {
     flex: 9;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+
   }
   
   .settingsTitle {
@@ -79,4 +82,19 @@
       padding: 10px;
       margin-top: 20px;
       cursor: pointer;
+  }
+
+  .settingsSubmitButton {
+    width: 150px;
+    padding: 10px 20px;
+    outline: none;
+    border-radius: 20px;
+    background-color: teal;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+
   }
