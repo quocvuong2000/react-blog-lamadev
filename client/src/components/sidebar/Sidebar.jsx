@@ -1,22 +1,9 @@
-import React,{useState, useEffect} from "react";
+import React from "react";
 import "./sidebar.css";
 import { Link } from "react-router-dom";
-import axios from "axios";
-// import cats from '../../assets/fake-data/categories';
+import cats from '../../assets/fake-data/categories';
 const Sidebar = () => {
-  const [cats,setCats] = useState();
-
-  useEffect(()=> {
-    try {
-      const fetchDate = async () => {
-        const res = await axios.get("/cats/");
-        setCats(res.data);
-      }
-      fetchDate();
-    } catch (error) {
-      console.log(error);
-    }
-  },[])
+  
   return (
     <div className="sidebar">
       <div className="sidebarItem">
@@ -36,8 +23,8 @@ const Sidebar = () => {
         <span className="sidebarTitle">DANH MỤC</span>
         <ul className="sidebarList">
           {cats?.map((c, index) => (
-            <Link to={`/?cat=${c.catId}`} className="link" key={index}>
-              <li className="sidebarListItem">{c.title}</li>
+            <Link to={`/?cat=${c.link}`} className="link" key={index}>
+              <li className="sidebarListItem">{c.display}</li>
             </Link>
           ))}
         </ul>

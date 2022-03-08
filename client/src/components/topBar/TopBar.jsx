@@ -29,6 +29,7 @@ const TopBar = () => {
   const PF = "http://localhost:5000/images/";
   const handleLogout = () => {
     dispatch(logout());
+    window.location.replace("/login");
   };
 
   return (
@@ -58,7 +59,7 @@ const TopBar = () => {
           <Link className="link" to="/settings">
             <img
               className="topImg"
-              src={user.profilePic ? PF + user.profilePic : null}
+              src={user.profilePic ? PF + user.profilePic : "https://i.kym-cdn.com/photos/images/original/001/178/392/e88.png"}
               alt=""
             />
           </Link>

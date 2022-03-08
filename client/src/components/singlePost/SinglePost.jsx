@@ -26,6 +26,14 @@ const SinglePost = () => {
     }
   }, [postId]);
 
+  const handleDelete = async ()=> {
+    await axios.delete("/posts/" + postId , {data : {
+      username : user.username,
+      title,
+      desc
+    }})
+    window.location.replace(`/?user=${post.username}`);
+  }
   const handleUpdate = async ()=> {
     await axios.put("/posts/" + postId , {
       username : user.username,
@@ -56,7 +64,7 @@ const SinglePost = () => {
                   className="singlePostIcon far fa-edit"
                   onClick={() => setUpdatedMode(true)}
                 ></i>
-                <i className="singlePostIcon far fa-trash-alt"></i>
+                <i className="singlePostIcon far fa-trash-alt" onClick={()=> handleDelete()}></i>
               </div>
             )}
           </h1>

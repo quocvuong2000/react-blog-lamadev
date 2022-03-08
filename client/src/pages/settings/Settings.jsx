@@ -57,7 +57,7 @@ setEmail(user.email);
           <label>Ảnh cá nhân</label>
           <div className="settingsPP">
             <img
-              src={file ? URL.createObjectURL(file) : PF+user.profilePic}
+              src={file ? URL.createObjectURL(file) : user.profilePic ? PF+user.profilePic : "https://i.kym-cdn.com/photos/images/original/001/178/392/e88.png"}
               alt=""
             />
             <label htmlFor="fileInput">
@@ -72,7 +72,7 @@ setEmail(user.email);
             />
           </div>
           <label>Tài khoản</label>
-          <input type="text" placeholder={username} name="name" />
+          <input type="text" placeholder={username} name="name" disabled={true} />
           <label>Email</label>
           <input
             type="email"

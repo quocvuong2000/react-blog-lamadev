@@ -1,27 +1,27 @@
 const cats = [
     {
       display: "Cuộc sống",
-      link: "?cat=Life",
+      link: "Life",
     },
     {
       display: "Âm nhạc",
-      link: "?cat=Music",
+      link: "Music",
     },
     {
       display: "Đồ họa",
-      link: "?cat=Design",
+      link: "Design",
     },
     {
       display: "Thể thao",
-      link: "?cat=Sport",
+      link: "Sport",
     },
     {
       display: "Công nghệ",
-      link: "?cat=Tech",
+      link: "Tech",
     },
     {
       display: "Điện ảnh",
-      link: "?cat=Cinema",
+      link: "Cinema",
     },
   ];
 

@@ -1,0 +1,19 @@
+.selectCats {
+    margin-left: 150px;
+    display: flex;
+    align-items: center;
+    border: solid 1px;
+    width: 300px;
+    height: 100px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .selectCatItem {
+    margin-right: 20px;
+
+  }
+
+  .selectCatItem label {
+    margin-left: 10px;
+  }

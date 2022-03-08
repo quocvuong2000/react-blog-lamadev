@@ -2,12 +2,15 @@ import React, { useState, useContext } from "react";
 import "./write.css";
 import { Context } from "../../context/Context";
 import axios from "axios";
-
+import categories from "../../assets/fake-data/categories";
+import Checkbox from "../../components/checkbox/Checkbox";
 const Write = () => {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
+  const [cats, setCats] = useState([]);
   const [file, setFile] = useState(null);
   const { user } = useContext(Context);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,11 +25,12 @@ const Write = () => {
       data.append("name", filename);
       data.append("file", file);
       newPost.photo = filename;
-      console.log(newPost);
-
       try {
         await axios.post("/upload", data);
       } catch (error) {}
+    }
+    if(cats) {
+      newPost.categories = cats;
     }
     try {
       const res = await axios.post("/posts", newPost);
@@ -35,6 +39,15 @@ const Write = () => {
     } catch (error) {}
   };
 
+  const handleCheckbox = (checked,item)=> {
+    if(checked) {
+      setCats([...cats,item.link]);
+    } else {
+      const newCats = cats.filter(cat => cat !== item.link);
+      setCats(newCats);
+    }
+  }
+console.log(cats);
   return (
     <div className="write">
       {file && (
@@ -59,6 +72,17 @@ const Write = () => {
             onChange={(e) => setTitle(e.target.value)}
           />
         </div>
+        <div className="writeFormGroup">
+        Các danh mục
+        </div>
+        <div className="selectCats">
+          {categories.map((item, index) => {
+            return (
+              <Checkbox key={index} index={index} item={item} onClick={(input) => handleCheckbox(input.checked,item)}></Checkbox>
+            );
+          })}
+        </div>
+
         <div className="writeFormGroup">
           <textarea
             className="writeInput writeText"

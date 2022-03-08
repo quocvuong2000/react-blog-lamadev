@@ -46,7 +46,7 @@ const Login = () => {
           placeholder="Enter your password..."
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button className="loginButton" type="submit" disabled={false}>
+        <button className="loginButton" type="submit" disabled={isFetching}>
           Đăng nhập
         </button>
       </form>
